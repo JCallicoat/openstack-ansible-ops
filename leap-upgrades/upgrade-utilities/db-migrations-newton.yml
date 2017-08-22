@@ -45,9 +45,9 @@
       command: "{{ venv_path }}/bin/cinder-manage db sync"
     - name: Patch cinder-manage service list to return FQDN
       replace:
-        - path: "{{ venv_path }}/lib/python2.7/site-packages/cinder/cmd/manage.py"
-        - regex: "svc.host.partition.*$"
-        - replace: "svc.host,"
+        path: "{{ venv_path }}/lib/python2.7/site-packages/cinder/cmd/manage.py"
+        regex: "svc.host.partition.*$"
+        replace: "svc.host,"
     - name: Perform service purge
       shell: |
         IFS=$'\n'
